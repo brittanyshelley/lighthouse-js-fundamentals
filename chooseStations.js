@@ -1,4 +1,4 @@
-const stations = [
+const stations = [ 
   ['Big Bear Donair', 10, 'restaurant'],
   ['Bright Lights Elementary', 50, 'school'],
   ['Moose Mountain Community Centre', 45, 'community centre']
@@ -6,21 +6,14 @@ const stations = [
 
 
 
-const chooseStations = function (stations) {
+const chooseStations = (stations) => {
   let goodStations = [];
 
-  for (let i = 0; i < stations.length; i++) {
-    let locations = stations[i];
-    const [name, capacity, locType] = locations;
-    // let name = locations[0];
-    // let capacity = locations[1];
-    // let locType = locations[2];
-
-
-    if (capacity >= 20 && (locType === "school" || locType === "community centre")) {
-        goodStations.push(name)
-    }
+ for (const station of stations) {
+  if(station[1] >= 20 && station[2] === "school" || station[2] === "community centre") {
+    goodStations.push(station[0])
   }
+ }
   return goodStations;
 }
 
